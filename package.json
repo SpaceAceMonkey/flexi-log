@@ -1,0 +1,21 @@
+{
+  "name": "flexi-log",
+  "version": "1.0.0",
+  "description": "Simple and flexible solution for logging messages to the console",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "sprintf-js": "^1.1.1",
+    "nodejs": "^0.0.0"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.5.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
