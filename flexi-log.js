@@ -35,30 +35,30 @@ var sprintf = require('sprintf-js');
  * than the ignore array, so a message with a label that appears in both arrays will
  * not be shown.
  */
-module.exports = {
-    LOGGING_ENABLED: true,
-    labelStack: [],
-    label: undefined,
+module.exports = function flexi_log() {
+    this.LOGGING_ENABLED = true;
+    this.labelStack = [];
+    this.label = null;
 
-    ignore: [],
-    showOnly: [],
+    this.ignore = [];
+    this.showOnly = [];
 
     /**
      * @description Sets LOGGING_ENABLED to true, causing output to ge generated when
      * log() is called.
      * @memberof flexi-log
      */
-    enable: function () {
+    this.enable = function() {
         this.LOGGING_ENABLED = true;
-    },
+    };
 
     /**
      * @description Causes all output to be suppressed.
      * @memberof flexi-log
      */
-    disable: function () {
+    this.disable = function() {
         this.LOGGING_ENABLED = false;
-    },
+    };
 
     /**
      * @description Sets the current log label, and stores it on the top of the stack.
@@ -66,17 +66,17 @@ module.exports = {
      * @param {string} newLabel The label to assign to subsequent log messages. This
      * label will also be pushed onto the label stack.
      */
-    pushLabel: function (newLabel) {
+    this.pushLabel = function(newLabel) {
         this.label = newLabel;
         this.labelStack.push(newLabel);
-    },
+    };
 
     /**
      * @description Pops the previous log label off of the stack, and makes it the current
      * log label.
      * @memberof flexi-log
      */
-    popLabel: function () {
+    this.popLabel = function() {
         this.labelStack.pop();
         if (this.labelStack.length > 0) {
             this.label = this.labelStack[this.labelStack.length - 1];
@@ -84,15 +84,15 @@ module.exports = {
         else {
             this.label = undefined;
         }
-    },
+    };
 
     /**
      * @description Returns the current log label
      * @memberof flexi-log
      */
-    getLabel: function () {
+    this.getLabel = function() {
         return this.label;
-    },
+    };
 
     /**
      * @description Sets the current log label, but does not push that label onto the
@@ -101,9 +101,9 @@ module.exports = {
      * @param {string} newLabel The label to assign to subsequent log messages. This
      * label will _not_ be pushed onto the label stack.
      */
-    setLabel: function (newLabel) {
+    this.setLabel = function(newLabel) {
         this.label = newLabel;
-    },
+    };
 
     /**
      * @description Formats and outputs the string contained in message, using the current
@@ -114,7 +114,7 @@ module.exports = {
      * supplied, the current label will be used. If the current label is null, the label
      * will default to "DEBUG"
      */
-    log: function (message, _label = undefined) {
+    this.log  = function(message, _label = null) {
         if (this.LOGGING_ENABLED) {
             labelToUse = (_label ? _label : (this.label ? this.label : 'DEBUG'));
             if (
@@ -130,5 +130,5 @@ module.exports = {
                 );
             }
         }
-    }
+    };
 };
