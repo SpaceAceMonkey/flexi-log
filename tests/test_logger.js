@@ -1,6 +1,6 @@
-const logger = require('../index.js');
+const logger = new (require('../index.js'))();
 
-if (logger.getLabel() !== undefined) {
+if (logger.getLabel() !== null) {
     throw new Error("Label should be null, but is '" + logger.getLabel() + "'");
 }
 
@@ -34,4 +34,4 @@ for (let i = 0; i < pushLabels.length; i++) {
     labelStackLengthTarget--;
 }
 
-console.log("All tests passed.");
+console.log("All tests passed. Probably.");
