@@ -1,4 +1,4 @@
-const logger = new (require('../index.js'))();
+const logger = new (require('../flexi-log.js'))();
 
 if (logger.getLabel() !== null) {
     throw new Error("Label should be null, but is '" + logger.getLabel() + "'");
