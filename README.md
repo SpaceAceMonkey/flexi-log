@@ -15,7 +15,7 @@ npm install --save flexi-log
 
 ```
 /* index.js */
-const logger = new(require('./flexi-log.js'))();
+const logger = new(require('flexi-log'))();
 
 logger.log("This is my message.");
 logger.pushLabel("MyLabel");
