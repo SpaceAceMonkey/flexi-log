@@ -281,7 +281,7 @@ This code simulates a variety of paths your code might take when retrieving and 
 
 ```
 const logger = new(require('./flexi-log.js'));
-const sprintf = require('sprintf');
+const sprintf = require('sprintf-js');
 
 function doSomething() {
     logger.pushLabel("DOING");
