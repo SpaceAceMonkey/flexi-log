@@ -118,8 +118,11 @@ module.exports = function flexi_log() {
         if (this.LOGGING_ENABLED) {
             labelToUse = (_label ? _label : (this.label ? this.label : 'DEBUG'));
             if (
-                this.showOnly.indexOf(labelToUse) > -1
-                || (this.showOnly.length === 0 && this.ignore.indexOf(labelToUse) === -1)
+                (
+                    this.showOnly.indexOf(labelToUse) > -1
+                    || this.showOnly.length === 0
+                ) 
+                && this.ignore.indexOf(labelToUse) === -1
             ) {
                 console.log(
                     sprintf.sprintf(

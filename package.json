@@ -1,6 +1,6 @@
 {
   "name": "flexi-log",
-  "version": "1.2.4",
+  "version": "1.2.6",
   "description": "Simple and flexible solution for logging messages to the console",
   "main": "flexi-log.js",
   "directories": {
